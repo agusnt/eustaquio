@@ -21,7 +21,8 @@ def hello(message):
     bot.reply_to(message, "Hello, yo soy Eustaquio y soy tu bot.\nTengo una "\
             "gran opción:\n/batman -> para mandarte chistes de BATMAN\n"\
             "/noelia -> pie!!\n/commie -> Proletariados del mundo uníos contra"\
-            "el opresor.\n/trump -> Make america great again!!")
+            "el opresor.\n/trump -> Make america great again!!\n/joke -> "\
+            "HAHAHAHAHAHAHAHAH.")
 
 @bot.message_handler(commands=['batman'])
 def batman(message):
@@ -39,4 +40,9 @@ def noelia(message):
 def trump(message):
     r = requests.get("https://api.whatdoestrumpthink.com/api/v1/quotes/random")
     bot.reply_to(message, r.json()['message'])
+
+@bot.message_handler(commands=['joke'])
+def joke(message):
+    r = requests.get("http://tambal.azurewebsites.net/joke/random")
+    bot.reply_to(message, r.json()['joke'])
 bot.polling()
