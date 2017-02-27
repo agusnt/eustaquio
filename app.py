@@ -34,7 +34,14 @@ def commie(message):
 
 @bot.message_handler(commands=['noelia'])
 def noelia(message):
-    bot.reply_to(message, "NOELIA QUEREMOS TARTA, AHORA")
+    if int(random.random() * 2) is 0:
+        bot.reply_to(message, "NOELIA QUEREMOS TARTA, AHORA")
+    else:
+        bot.reply_to(message, "Chorizooooo, 〒▽〒")
+
+@bot.message_handler(regexp="（╯‵□′）╯︵┴─┴")
+def table(message):
+    bot.reply_to(message, "┬──┬ ﾉ(°—°ﾉ) ")
 
 @bot.message_handler(commands=['trump'])
 def trump(message):
